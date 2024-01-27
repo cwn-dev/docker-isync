@@ -1,11 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 
-sed -i "s/{NAME}/${NAME}/g" /mbsync.conf
-sed -i "s/{SERVER}/${SERVER}/g" /mbsync.conf
-sed -i "s/{EMAIL}/${EMAIL}/g" /mbsync.conf
-sed -i "s/{PASSWORD}/${PASSWORD}/g" /mbsync.conf
-sed -i "s/{NAME}/${NAME}/g" /isync.cron
+sed -i "s/{NAME}/${NAME}/g" /mbsyncrc.conf
+sed -i "s/{SERVER}/${SERVER}/g" /mbsyncrc.conf
+sed -i "s/{EMAIL}/${EMAIL}/g" /mbsyncrc.conf
+sed -i "s/{PASSWORD}/${PASSWORD}/g" /mbsyncrc.conf
+sed -i "s/{NAME}/${NAME}/g" /etc/crontabs/root
 
-crontab /isync.cron
-
-cron -r
+crond -f -d 8

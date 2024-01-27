@@ -1,9 +1,7 @@
-FROM debian:bookworm-slim
+FROM alpine:latest
 
-RUN apt update && \ 
-    apt install isync cron && \
-    rm -rf /tmp/* /var/tmp/* && \
-    adduser --disabled-password --gecos "" app && \
+RUN apk update && \ 
+    apk add isync && \
     mkdir /mail_data
 
 COPY root/ /
