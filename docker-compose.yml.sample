@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  dovecot:
+    container_name: isync
+    image: isync:latest
+    restart: always
+    user: "1000:1000"
+    environment:
+      - NAME=anyname
+      - SERVER=mail.server.com
+      - EMAIL=some@name.com
+      - PASSWORD=yourpassword
+    volumes:
+      - ./mail_data:/home/app/mail_data
