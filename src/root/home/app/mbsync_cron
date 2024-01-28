@@ -1,1 +1,1 @@
-*/5   *   *   *   * mbsync -c /home/app/mbsyncrc.conf {NAME}
+*/1   *   *   *   * mbsync -c /home/app/mbsyncrc.conf {NAME}
