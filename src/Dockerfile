@@ -1,18 +1,16 @@
 FROM alpine:latest
 
-RUN apk update && \ 
-    apk add isync && \
-    mkdir -p /etc/periodic/5min
-
 COPY root/ /
 
-RUN chmod +x /start.sh
+RUN apk update && \ 
+    apk add isync supercronic && \
+    addgroup -S app && \
+    adduser -S app -G app && \
+    chmod +x /start.sh && \
+    chown -R 1000:1000 /home/app
 
-RUN addgroup -S app && adduser -S app -G app
 USER app
-RUN mkdir /home/app/mail_data
 
-USER root
 VOLUME /home/app/mail_data
 
 ENTRYPOINT [ "/start.sh" ]

@@ -1,1 +1,0 @@
-mbsync -c /mbsyncrc.conf {NAME}
